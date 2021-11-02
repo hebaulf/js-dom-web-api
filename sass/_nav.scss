@@ -1,0 +1,63 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+
+  @media screen and (min-width: 769px) {
+    flex-direction: column;
+  }
+
+  &__link {
+    color: $font-color;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: color $transition;
+
+    &[data-target="home"] {
+      &.active,
+      &:hover,
+      &:focus {
+        color: $main-color-home;
+      }
+    }
+
+    &[data-target="bookList"] {
+      &.active,
+      &:hover,
+      &:focus {
+        color: $main-color-books;
+      }
+    }
+
+    &[data-target="movieList"] {
+      &.active,
+      &:hover,
+      &:focus {
+        color: $main-color-movies;
+      }
+    }
+
+    span {
+      @media screen and (max-width: 500px) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+    }
+
+    i.fa-solid {
+      padding: 1rem;
+
+      @media screen and (min-width: 769px) {
+        display: block;
+      }
+    }
+  }
+}

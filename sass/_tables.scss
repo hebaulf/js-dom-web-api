@@ -1,0 +1,11 @@
+.table {
+  i.delete {
+    color: $error-color;
+    cursor: pointer;
+    transition: color $transition;
+
+    &:hover {
+      color: $error-color--hover;
+    }
+  }
+}

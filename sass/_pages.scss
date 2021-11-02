@@ -1,0 +1,41 @@
+/**** PAGES ****/
+.page {
+  display: none;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  position: absolute;
+  padding: 3rem 2rem;
+  padding-top: 0;
+
+  &.active {
+    display: block;
+  }
+
+  .page__header {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 12rem;
+  }
+}
+
+#home {
+  background-color: $bg-color-home;
+}
+#bookList {
+  background-color: $bg-color-books;
+}
+#movieList {
+  background-color: $bg-color-movies;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  transition: all $transition;
+}
+.big {
+  font-size: 8rem;
+  font-weight: 900;
+}

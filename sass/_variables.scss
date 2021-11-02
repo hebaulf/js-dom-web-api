@@ -1,0 +1,29 @@
+$font-family: "Poppins", sans-serif;
+
+$main-color-home: rgb(148, 156, 219);
+$main-color-books: rgb(148, 219, 219);
+$main-color-movies: rgb(219, 162, 148);
+
+$color-black: rgb(0, 0, 0);
+$color-white: rgb(255, 255, 255);
+
+$bg-color-home: lighten($main-color-home, 20%);
+$bg-color-books: lighten($main-color-books, 20%);
+$bg-color-movies: lighten($main-color-movies, 20%);
+
+$btn-color-home: darken($main-color-home, 20%);
+$btn-color-books: darken($main-color-books, 20%);
+$btn-color-movies: darken($main-color-movies, 20%);
+
+$btn-color-home--hover: darken($main-color-home, 30%);
+$btn-color-books--hover: darken($main-color-books, 30%);
+$btn-color-movies--hover: darken($main-color-movies, 30%);
+
+$font-color: rgb(53, 53, 49);
+
+$error-color: rgb(218, 73, 37);
+$error-color--hover: darken($error-color, 15%);
+$success-color: rgb(31, 141, 95);
+$success-color--hover: darken($success-color, 15%);
+
+$transition: 0.3s ease-in-out;

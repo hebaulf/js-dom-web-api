@@ -1,0 +1,203 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-height: 475px;
+  color: #353531;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+}
+@media screen and (min-width: 769px) {
+  body {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  z-index: 999;
+}
+@media screen and (min-width: 769px) {
+  header {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    max-width: 300px;
+    min-width: 150px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+main {
+  position: relative;
+  padding-top: 80px;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (min-width: 769px) {
+  main {
+    padding-top: 0;
+  }
+}
+
+.btn {
+  color: #353531;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #4855c1;
+  color: #fff;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #3642a0;
+}
+#bookList .btn-primary {
+  background-color: #48c1c1;
+}
+#bookList .btn-primary:hover, #bookList .btn-primary:focus {
+  background-color: #36a0a0;
+}
+#movieList .btn-primary {
+  background-color: #c16048;
+}
+#movieList .btn-primary:hover, #movieList .btn-primary:focus {
+  background-color: #a04b36;
+}
+
+/**** PAGES ****/
+.page {
+  display: none;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  position: absolute;
+  padding: 3rem 2rem;
+  padding-top: 0;
+}
+.page.active {
+  display: block;
+}
+.page .page__header {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 12rem;
+}
+
+#home {
+  background-color: #e0e3f5;
+}
+
+#bookList {
+  background-color: #e0f5f5;
+}
+
+#movieList {
+  background-color: #f5e4e0;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.big {
+  font-size: 8rem;
+  font-weight: 900;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+@media screen and (min-width: 769px) {
+  .nav {
+    flex-direction: column;
+  }
+}
+.nav__link {
+  color: #353531;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+}
+.nav__link[data-target=home].active, .nav__link[data-target=home]:hover, .nav__link[data-target=home]:focus {
+  color: #949cdb;
+}
+.nav__link[data-target=bookList].active, .nav__link[data-target=bookList]:hover, .nav__link[data-target=bookList]:focus {
+  color: #94dbdb;
+}
+.nav__link[data-target=movieList].active, .nav__link[data-target=movieList]:hover, .nav__link[data-target=movieList]:focus {
+  color: #dba294;
+}
+@media screen and (max-width: 500px) {
+  .nav__link span {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+.nav__link i.fa-solid {
+  padding: 1rem;
+}
+@media screen and (min-width: 769px) {
+  .nav__link i.fa-solid {
+    display: block;
+  }
+}
+
+#book-form .form-control {
+  border: 1px solid #94dbdb;
+}
+
+#movie-form .form-control {
+  border: 1px solid #dba294;
+}
+
+.table i.delete {
+  color: #da4925;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+.table i.delete:hover {
+  color: #99331a;
+}
+
+/*# sourceMappingURL=style.css.map */
