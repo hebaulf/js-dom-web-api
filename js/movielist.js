@@ -1,5 +1,6 @@
 // Movie Class: Represents a Movie
 class Movie {
+    // constructor for movie information
     constructor(title, director, score) {
       this.title = title;
       this.director = director;
@@ -9,16 +10,19 @@ class Movie {
   
 /* HANDLE UI TASKS */
 class UIMovies {
+    // Function to display movies in list
     static displayMovies() {
-      const movies = StoreMovies.getMovies();
+      const movies = StoreMovies.getMovies(); // Get movies from localStorage
   
       movies.forEach((movie) => UIMovies.addMovieToList(movie));
     }
   
+    // Function to add movies to list
     static addMovieToList(movie) {
       const movieList = document.querySelector('#movie-list');
-      const movieId = (movie.title).toLowerCase().replace(/\s+/g, '');
+      const movieId = (movie.title).toLowerCase().replace(/\s+/g, ''); // Gets movie title and puts it in lower case and removes spaces to create ID
   
+      // HTML for movie items to be displayed in list
       const movieItem = /*html*/`
         <tr class="table-body-row" data-id="${movieId}">
             <td>${movie.title}</td>
@@ -31,24 +35,27 @@ class UIMovies {
       movieList.insertAdjacentHTML('beforeend', movieItem);
     }
   
+    // Function to delete movie from list
     static deleteMovie(el) {
-      if(el.classList.contains('delete')) {
-        el.parentElement.parentElement.remove();
+      if(el.classList.contains('delete')) { // Find delete btn
+        el.parentElement.parentElement.remove(); // Find parent of parent element and remove from list
       }
     }
   
+    // Function to show alert when deleted, added or error
     static showAlert(message, className) {
-      const div = document.createElement('div');
-      div.className = `alert alert-${className}`;
-      div.appendChild(document.createTextNode(message));
-      const container = document.querySelector('.movie-list__wrap');
-      const form = document.querySelector('#movie-form');
-      container.insertBefore(div, form);
+      const div = document.createElement('div'); // Create a div
+      div.className = `alert alert-${className}`; // Add class to div
+      div.appendChild(document.createTextNode(message)); // Add message to div
+      const container = document.querySelector('.movie-list__wrap'); // Get container
+      const form = document.querySelector('#movie-form'); // Get form
+      container.insertBefore(div, form); // Display message before form element
   
       // Alert to vanish in 3 seconds
       setTimeout(() => document.querySelector('.alert').remove(), 3000);
     }
   
+    // Function to clear form fields after item is added
     static clearFields() {
       document.querySelector('#movietitle').value = '';
       document.querySelector('#director').value = '';
@@ -58,32 +65,37 @@ class UIMovies {
 
 /* STORE MOVIES IN LOCALSTORAGE */
 class StoreMovies {
+    // Function to get movies from localStorage
     static getMovies() {
-      let movies;
+      let movies; // variable 'movies' created with no value
       if(localStorage.getItem('movies') === null) {
+        // if localStorage is empty, the movies array is empty
         movies = [];
       } else {
+        // Else movies array gets items from localStorage
         movies = JSON.parse(localStorage.getItem('movies'));
       }
   
       return movies;
     }
   
+    // Function to add movies to localStorage
     static addMovie(movie) {
       const movies = StoreMovies.getMovies();
       movies.push(movie);
       localStorage.setItem('movies', JSON.stringify(movies));
     }
   
+    // Function to remove movies from localStorage by title
     static removeMovie(title) {
       const movies = StoreMovies.getMovies();
   
       movies.forEach((movie, index) => {
         if(movie.title === title) {
             movies.splice(index, 1);
-            console.log(title + ' removed from store');
         }
-        // console.log(`movie.title: ${movie.title}, title: ${title}, index: ${index}`);
+
+        console.log(movie.title === title);
       });
 
       localStorage.setItem('movies', JSON.stringify(movies));
@@ -103,7 +115,7 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
     const director = document.querySelector('#director').value;
     const score = document.querySelector('#score').value;
   
-    // Validate
+    // Validate form inputs
     if(title === '' || director === '' || score === '') {
         UIMovies.showAlert('Please fill in all fields', 'danger');
     } else {
@@ -121,8 +133,7 @@ document.querySelector('#movie-form').addEventListener('submit', (e) => {
 document.querySelector('#movie-list').addEventListener('click', (e) => {
     e.preventDefault();
     
-    UIMovies.deleteMovie(e.target); // Remove book from UI
-    StoreMovies.removeMovie(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent);// Remove book from store
-    // console.log(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent)
+    UIMovies.deleteMovie(e.target); // Remove movie from UI
+    StoreMovies.removeMovie(e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent);// Remove movie from store
     UIMovies.showAlert('Movie Removed', 'success'); // Show success message
 });
