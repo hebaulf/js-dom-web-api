@@ -1,5 +1,7 @@
 # Javascript in the Browser - Common Web APIs
-For this project I created a single page app where you can add a list of movies and books, whether they are a list of books/movies you have seen/read or books/movies you are going to see/read.  
+For this project I created a single page app where you can add a list of movies and books, whether they are a list of books/movies you have seen/read or books/movies you are going to see/read. 
+
+![Project Image](img/desktop.png)
 
 There is a menu where you can navigate between home, book list and movie list. I used history.pushState() to add a hash with page id to the url.  
 
@@ -12,3 +14,5 @@ Other things I used:
 - Sass for my overriding styles.
 - FontAwsome for icons.
 - Google Font Poppins.
+
+![Project Image](img/mobile.png)
